@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="formulario">
+        <h2>Crea una Nueva Tarea</h2>
+        <p>Tarea : <input type="text" v-model="nombre"> </p>
+        <button @click="agregarTarea">Crear</button>
+        <ul v-for="(tarea, index) in tareas" :key="index">
+            <li>{{index}} {{tarea.nombre}}</li>
+            </tr>
+        </ul>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#formulario",
+            data: {
+                tareas: []
+            },
+            methods: {
+                agregarTarea: function() {
+                    this.tareas.push({
+                        nombre: this.nombre
+                    });
+                    this.nombre = "";
+                }
+            }
+
+        })
+    </script>
+
+
+</body>
+
+</html>
